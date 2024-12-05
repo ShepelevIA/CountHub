@@ -1,50 +1,96 @@
-# React + TypeScript + Vite
+# Vite React TypeScript MUI Redux Axios D3 Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛠️ Технологии
 
-Currently, two official plugins are available:
+Этот проект создан с использованием следующих технологий:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **[Vite](https://vitejs.dev/)**: Быстрый сборщик для современных проектов.
+- **[React](https://reactjs.org/)**: Библиотека для создания пользовательских интерфейсов.
+- **[TypeScript](https://www.typescriptlang.org/)**: Надстройка над JavaScript для статической типизации.
+- **[Material-UI (MUI)](https://mui.com/)**: Популярная библиотека компонентов для React.
+- **[Redux](https://redux.js.org/)**: Состояние приложения.
+- **[Axios](https://axios-http.com/)**: HTTP-клиент для работы с API.
+- **[D3.js](https://d3js.org/)**: Библиотека для создания визуализаций данных.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 📦 Установка
 
-- Configure the top-level `parserOptions` property like this:
+1. Клонируйте репозиторий:
+   ```bash
+   git clone <repository-url>
+   ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+2. Перейдите в папку проекта:
+   ```bash
+   cd <project-folder>
+   ```
+
+3. Установите зависимости:
+   ```bash
+   npm install
+   ```
+
+---
+
+## 🚀 Запуск
+
+### Для разработки:
+```bash
+npm run dev
+```
+Приложение будет доступно по адресу: `http://localhost:5173`
+
+### Для сборки:
+```bash
+npm run build
+```
+Собранный проект будет находиться в папке `dist`.
+
+### Для предпросмотра собранного приложения:
+```bash
+npm run preview
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 📂 Структура проекта
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```plaintext
+src/
+├── components/       # Компоненты приложения
+├── hooks/            # Кастомные хуки
+├── pages/            # Страницы приложения
+├── redux/            # Состояние приложения (слайсы и хранилище)
+├── services/         # Работа с API (Axios)
+├── styles/           # Глобальные стили
+├── types/            # Определения типов TypeScript
+└── utils/            # Утилиты и вспомогательные функции
 ```
+
+---
+
+## 🌟 Особенности
+
+- Быстрая сборка благодаря Vite.
+- Типизация компонентов с TypeScript.
+- Использование Material-UI для готовых UI-компонентов.
+- Глобальное состояние приложения с помощью Redux Toolkit.
+- Работа с API через Axios.
+- Динамические визуализации с использованием D3.js.
+
+---
+
+## 📘 Документация
+
+- [Документация React](https://reactjs.org/docs/getting-started.html)
+- [Документация Vite](https://vitejs.dev/guide/)
+- [Документация TypeScript](https://www.typescriptlang.org/docs/)
+- [Документация Material-UI](https://mui.com/getting-started/usage/)
+- [Документация Redux](https://redux.js.org/introduction/getting-started)
+- [Документация Axios](https://axios-http.com/docs/intro)
+- [Документация D3.js](https://d3js.org/)
+
+## 📄 Лицензия
+
+Этот проект распространяется под лицензией [MIT](LICENSE).
