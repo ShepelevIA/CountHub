@@ -1,58 +1,50 @@
-# CountHub
+# React + TypeScript + Vite
 
-### Описание
-CountHub — это универсальное Web-приложение, предназначенное для учета мебели и оборудования на различных площадках в образовательных организациях, таких как колледжи системы среднего профессионального образования (СПО). Приложение обеспечивает удобное управление инвентарем и контроль за состоянием имущества на всех объектах организации.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-### Возможности
-- **Учет мебели и оборудования**: фиксируйте информацию о мебели, технике и других объектах, хранящихся в разных кабинетах или на площадках.
-- **Гибкая система категорий**: разделяйте инвентарь на категории (мебель, электроника, учебные материалы и т.д.) для упрощения поиска и управления.
-- **Локации**: управляйте данными для нескольких площадок, корпусов и аудиторий внутри образовательной организации.
-- **Отчеты и аналитика**: генерируйте отчеты о текущем состоянии инвентаря, его местоположении и статусе (исправно, требует ремонта, списано и т.д.).
-- **Мультипользовательский доступ**: предоставляйте доступ различным ролям (администраторы, преподаватели, сотрудники) с разграничением прав.
-- **Простота интеграции**: возможность импорта/экспорта данных в популярных форматах (Excel, CSV).
+Currently, two official plugins are available:
 
-### Технологический стек
-- **Frontend**: React, TypeScript, MUI, Axios, Redux.
-- **Backend**: Laravel.
-- **База данных**: MySQL, WorkBench.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-### Целевая аудитория
-Приложение предназначено для:
-- Администраторов образовательных организаций.
-- Заведующих кафедрами и подразделениями.
-- Сотрудников, ответственных за материально-техническое обеспечение.
+## Expanding the ESLint configuration
 
-### Преимущества
-- Удобный и интуитивно понятный интерфейс.
-- Централизованное управление всеми объектами учета.
-- Повышение прозрачности и упрощение работы с инвентарем.
-- Снижение потерь имущества за счет точного отслеживания.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-### Установка
-1. Склонируйте репозиторий:
-   ```bash
-   git clone https://github.com/ShepelevIA/CountHub.git
-   ```
-2. Перейдите в папку проекта:
-   ```bash
-   cd counthub
-   ```
-3. Установите зависимости:
-   ```bash
-   npm install
-   ```
-4. Настройте переменные окружения в файле `.env`:
-   ```
-   DB_USER=root
-   DB_PASSWORD=yourpassword
-   DB_DATABASE=counthub
-   ```
-5. Запустите приложение:
-   ```bash
-   npm run dev
-   ```
+- Configure the top-level `parserOptions` property like this:
 
----
-CountHub — простой способ управлять инвентарем и сохранять порядок в образовательных организациях!
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
+
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
