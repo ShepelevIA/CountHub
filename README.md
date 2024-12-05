@@ -31,7 +31,7 @@ CountHub — это универсальное Web-приложение, пре�
 ### Установка
 1. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/yourusername/counthub.git
+   git clone https://github.com/ShepelevIA/CountHub.git
    ```
 2. Перейдите в папку проекта:
    ```bash
